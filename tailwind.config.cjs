@@ -5,7 +5,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'overlay': 'rgba(255,255,255,.7)',
+      }
+    },
     container: {
       center: true,
     },
