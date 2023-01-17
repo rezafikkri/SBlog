@@ -33,7 +33,7 @@ export const postsApi = createApi({
         method: 'PATCH',
         body: patch,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Posts', id: 'LIST' }],
+      invalidatesTags: [{ type: 'Posts', id: 'LIST' }],
       async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
         try {
           const { data: updatedPost } = await queryFulfilled
@@ -45,6 +45,13 @@ export const postsApi = createApi({
         } catch {}
       },
     }),
+    deletePost: builder.mutation({
+      query: (id) => ({
+        url: `/posts/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: 'Posts', id }],
+    }),
   }),
 });
 
@@ -53,4 +60,5 @@ export const {
   useGetPostQuery,
   useAddPostMutation,
   useUpdatePostMutation,
+  useDeletePostMutation,
 } = postsApi;
