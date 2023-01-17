@@ -9,7 +9,7 @@ export default function Posts() {
     <div className="max-w-3xl">
       <h1 className="text-3xl font-bold leading-7 text-gray-900 mb-6 mt-10">Daftar Artikel</h1>
       <Link to={'posts/create'} className="bg-teal-500 hover:bg-teal-600 rounded py-2 px-4 text-md font-medium text-white shadow-sm inline-block">Tambah Data</Link>
-      <div className="relative min-h-[100px] mb-5 mt-6 relative overflow-x-auto">
+      <div className="relative min-h-[100px] mb-5 mt-6 overflow-x-auto">
       {
         error ? (
           <>Oh no, there was an error</>
@@ -32,7 +32,7 @@ export default function Posts() {
                     <td className="px-6 py-4">{index+1}</td>
                     <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{post.title}</td>
                     <td className="px-6 py-4">
-                      <a href="" className="font-medium text-blue-600 hover:underline mr-2 inline-block">Edit</a>
+                      <Link to={`posts/edit/${post.id}`} className="font-medium text-blue-600 hover:underline mr-2 inline-block">Edit</Link>
                       <a href="" className="font-medium text-blue-600 hover:underline inline-block">Delete</a>
                     </td>
                   </tr>

@@ -3,6 +3,7 @@ import App from "./App";
 import ErrorPage from "../common/ErrorPage";
 import Posts from "../features/posts/Posts";
 import CreatePost from "../features/posts/CreatePost";
+import EditPost from "../features/posts/EditPost";
 
 export default createBrowserRouter([
   {
@@ -17,7 +18,11 @@ export default createBrowserRouter([
       {
         path: "posts/create",
         element: <CreatePost />
-      }
+      },
+      {
+        path: "posts/edit/:postId",
+        element: <EditPost />
+      },
     ],
   }, 
 ]);
