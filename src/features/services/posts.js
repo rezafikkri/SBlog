@@ -15,7 +15,18 @@ export const postsApi = createApi({
             ]
           : [{ type: 'Posts', id: 'LIST' }],
     }),
+    addPost: builder.mutation({
+      query: (body) => ({
+        url: '/',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: [{ type: 'Posts', id: 'LIST' }],
+    }),
   }),
 });
 
-export const { useGetPostsQuery } = postsApi;
+export const {
+  useGetPostsQuery,
+  useAddPostMutation,
+} = postsApi;
